@@ -6,7 +6,7 @@ export const RemotionRoot: React.FC = () => {
     <Composition
       id="QuickStart"
       component={QuickStart}
-      durationInFrames={390}
+      durationInFrames={540}
       fps={30}
       width={1920}
       height={1080}
