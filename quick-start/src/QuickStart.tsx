@@ -101,13 +101,13 @@ export const QuickStart: React.FC = () => (
     <Sequence from={0} durationInFrames={45}>
       <LogoScene fadeIn />
     </Sequence>
-    <Sequence from={45} durationInFrames={110}>
+    <Sequence from={45} durationInFrames={150}>
       <Terminal />
     </Sequence>
-    <Sequence from={155} durationInFrames={45}>
+    <Sequence from={195} durationInFrames={45}>
       <Ready />
     </Sequence>
-    <Sequence from={200} durationInFrames={45}>
+    <Sequence from={240} durationInFrames={45}>
       <LogoScene fadeOut />
     </Sequence>
   </AbsoluteFill>

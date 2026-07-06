@@ -350,7 +350,7 @@ export const AdminUITour: React.FC = () => (
   <AbsoluteFill>
     {/* Scene 1: Logo intro (frames 0-30, 1s) */}
     <Sequence from={0} durationInFrames={30}>
-      <LogoScene fadeIn fadeOut />
+      <LogoScene fadeIn fadeOut duration={30} />
     </Sequence>
 
     {/* Scene 2: Browser window with Admin UI content editor (frames 30-340, ~10.3s) */}
@@ -362,7 +362,7 @@ export const AdminUITour: React.FC = () => (
 
     {/* Scene 3: Logo outro (frames 340-360, ~0.7s) */}
     <Sequence from={340} durationInFrames={20}>
-      <LogoScene fadeOut />
+      <LogoScene fadeOut duration={20} />
     </Sequence>
   </AbsoluteFill>
 );

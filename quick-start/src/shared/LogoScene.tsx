@@ -3,9 +3,9 @@ import { AbsoluteFill, useCurrentFrame, interpolate, Img, staticFile } from "rem
 import { C, FONT } from "./theme";
 
 // ─── Standard Logo Scene ────────────────────────────────────────────────────
-// Intro/outro: centered logo + title + tagline with fade in or out.
-// Wrap this inside a <Sequence> to control timing — useCurrentFrame() is
-// already local to the sequence, so no startFrame prop needed.
+// Wrap inside a <Sequence> to control timing — useCurrentFrame() is
+// already local to the sequence. Pass `duration` to match the parent
+// <Sequence durationInFrames> so fade-out timing is correct.
 //
 // fadeOut: fades out over the last 15 frames of the sequence
 // fadeIn:  fades in over the first 15 frames (default = true)
@@ -13,14 +13,13 @@ import { C, FONT } from "./theme";
 export const LogoScene: React.FC<{
   fadeIn?: boolean;
   fadeOut?: boolean;
-}> = ({ fadeIn = true, fadeOut = false }) => {
+  duration?: number; // MUST match parent <Sequence durationInFrames>
+}> = ({ fadeIn = true, fadeOut = false, duration = 45 }) => {
   const f = useCurrentFrame();
-  // NOTE: fade durations are relative to the Sequence duration — caller must
-  // set durationInFrames appropriately. Typical: 45 frames (1.5s @ 30fps).
   const fadeLen = 15;
 
   const o = fadeOut
-    ? interpolate(f, [45 - fadeLen, 45], [1, 0], {
+    ? interpolate(f, [duration - fadeLen, duration], [1, 0], {
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
       })
