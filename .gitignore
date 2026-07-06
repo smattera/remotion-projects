@@ -1,5 +1,7 @@
 node_modules/
-out/
+out/**
 dist/
 *.mp4
 .cache/
+package-lock.json
+quick-start/package-lock.json
